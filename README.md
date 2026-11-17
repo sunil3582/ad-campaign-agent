@@ -110,4 +110,3 @@ The supplied CSV has historical dates, so the scheduler needs new metrics added 
 
 With another week, I would add a real metrics feed, authenticated reviewer identities, provider-side reconciliation for partial failures, and repeated live Gemini evals on held-out cases. I would keep the same approval and code-guardrail boundaries.
 
-Read [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) for the code learning path and local database setup.
