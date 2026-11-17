@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_ADMIN_PASSWORD:-postgres_local}
+      POSTGRES_DB: postgres
+      GUARDIAN_DB_PASSWORD: ${GUARDIAN_DB_PASSWORD:-guardian_local}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sh:/docker-entrypoint-initdb.d/01-guardian.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U postgres -d postgres"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://guardian:${GUARDIAN_DB_PASSWORD:-guardian_local}@postgres:5432/guardian
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gemini-3.5-flash-lite}
+      BUSINESS_TIMEZONE: ${BUSINESS_TIMEZONE:-Asia/Kolkata}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: ["--help"]
+volumes:
+  postgres_data:
+

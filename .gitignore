@@ -1,0 +1,15 @@
+.venv/
+.env
+.env.*
+!.env.example
+*.eml
+*.log
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.local/
+exports/
+*.egg-info/
+

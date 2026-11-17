@@ -1,0 +1,11 @@
+.git
+.venv
+.env
+.env.*
+.local
+exports
+__pycache__
+.pytest_cache
+.ruff_cache
+IMPLEMENTATION_PLAN.md
+

@@ -1,0 +1,4 @@
+client_id,name,target_cpa_inr,target_roas,daily_budget_cap_inr,max_shift_pct
+C1,UrbanNest Furniture,800,3.0,60000,20
+C2,GlowLeaf Skincare,450,4.0,40000,25
+C3,SkillPath Academy,1200,2.5,80000,15
