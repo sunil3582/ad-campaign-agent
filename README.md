@@ -6,7 +6,7 @@ Gemini is the only runtime model. The assignment’s CSV metrics and persistent 
 
 ## Start from a clone
 
-Requires Git, Docker with Compose v2, and a Gemini API key. If `docker --version` fails, install and start Docker Desktop, or use the local setup in [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md#local-setup-without-docker). With Docker running, the first Gemini run takes five commands:
+Requires Git, Docker with Compose v2, and a Gemini API key. If `docker --version` fails, install and start Docker Desktop. the first Gemini run takes five commands:
 
 ```sh
 git clone <your-repository-url> ad-budget-guardian
